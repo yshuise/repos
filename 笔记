@@ -1,0 +1,72 @@
+sudo ./vmware-install.pl
+
+CP命令
+格式: CP [选项] 源文件或目录 目的文件或目录
+选项说明:-b 同名,备分原来的文件
+-f 强制覆盖同名文件
+-r 按递归方式保留原目录结构复制文件
+cp -r /tmp/a /root/a
+记得有空格
+
+[root@localhost ~]# chmod 777 /home/user?注：仅把/home/user目录的权限设置为rwxrwxrwx
+[root@localhost ~]# chmod -R 777 /home/user?注：表示将整个/home/user目录与其中的文件和子目录的权限都设置为rwxrwxrwx
+
+
+想一次修改某个目录下所有文件的权限，包括子目录中的文件权限也要修改，要使用参数－R表示启动递归处理。
+
+?
+
+例如：
+
+?
+
+[root@localhost ~]# chmod 777 /home/user?注：仅把/home/user目录的权限设置为rwxrwxrwx
+
+[root@localhost ~]# chmod -R 777 /home/user?注：表示将整个/home/user目录与其中的文件和子目录的权限都设置为rwxrwxrwx
+
+---------------------
+
+本文来自 Komaer 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/chenjiiinliang/article/details/7288173?utm_source=copy 
+虚拟机版本：VMware Workstations 12 Pro
+
+
+1、打开在虚拟机上已经安装好的客户机（博主安装的是Ubuntu16.04 LTS），点击工具栏的“虚拟机”--“安装VMware Tools”
+
+2、把VMwareTools-10.1.6-5214329.tar.gz解压到随便一个路径下：
+
+（1）、打开终端 terminal 快捷方式
+Ctrl+Alt+T
+
+（2）、解压命令
+可以先切换到 root 权限下 ?$sudo su ?然后 $tar ?-zxvf ?VMwareTools-10.1.6-5214329.tar.gz
+?
+也可以不切换 root 权限 $sudo tar ?-zxvf ??VMwareTools-10.1.6-5214329.tar.gz?
+
+（3）、安装
+cd 到刚解压的文件夹下，使用命令 ./vmware-install.pl 点击回车，不用关心终端显示什么，一路回车，回车不好用就输入 yes 继续回车，直到看见 Enjoy 安装结束
+（）、手动重启虚拟机，就可以实现文件在虚拟机和物理机之间的拖拽，虚拟机也能很好的适配显示器，其他功能有待发现......
+
+---------------------
+
+本文来自 Polumgla 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/polumgla/article/details/78906219?utm_source=copy 
+
+
+1. sudo apt-get install mysql-server
+
+2. sudo apt-get isntall mysql-client
+
+3. sudo apt-get install libmysqlclient-dev
+sudo netstat -tap | grep mysql
+
+
+1、用当前登录用户打开终端，在终端输入命令 sudo passwd，输入当前用户的密码然后回车
+2、会提示输入新密码，输入完成后回车
+3、然后提示再输入一次新密码以确认，然后回车，设置成功
+linuxidc@ubuntu:~$ sudo passwd
+[sudo] password for linuxidc:
+输入新的 UNIX 密码：
+重新输入新的 UNIX 密码：
+passwd：已成功更新密码
+linuxidc@ubuntu:~$
+注意：这个新密码就是root的密码，可以与当前用户的密码不同。
+在终端中输入 su root，然后输入root的密码，验证成功即可切换到root用户。在root用户下做完操作后，用exit命令即可退出root用户，退回当前登陆用户。
